@@ -56,12 +56,7 @@ public class ManejadorEventos implements ActionListener {
 				if(e.getSource()==ventana.getBotonDividir()) {		//comprotamiento del boton ÷
 					dividir();
 				}
-				if(e.getSource()==ventana.getBotonRaiz2()) {	//comprotamiento del boton ²√
-					raizCuadrada();
-				}				
-				if(e.getSource()==ventana.getBotonRaiz3()) {	//comprotamiento del boton ³√
-					caizCubica();
-				}				
+			
 			}
 	
 		}
@@ -77,11 +72,23 @@ public class ManejadorEventos implements ActionListener {
 				ventana.getResultado().setText("");
 			}
 		}
+		
+		// hacemos un try nuevo par que no sea capturada la excepción con la condición de rellenar las dos cajas de texto, y poder así hacer la raíz con un solo número.
+		try {	
+			if(e.getSource()==ventana.getBotonRaiz2()) {	//comprotamiento del boton ²√
+				raizCuadrada();
+			}				
+			if(e.getSource()==ventana.getBotonRaiz3()) {	//comprotamiento del boton ³√
+				caizCubica();
+			}
+	
+			
+		}
 		catch(Exception ex) { 
 			ventana.getResultado2().setText("Error");
 			ventana.getResultado().setText("");
 		}
-
+		
 		ventana.getCajaTexto1().requestFocus(); //colocamos el cursor en CajaTexto1
 		
 	}
